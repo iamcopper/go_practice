@@ -1,2 +1,2 @@
-# go_practice
+# go_study
 golang language study practice
