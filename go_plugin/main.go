@@ -12,5 +12,12 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	f.(func())()
+
+	/* Interface type assert */
+	hello, ok := f.(func())
+	if !ok {
+		panic("not found")
+	}
+
+	hello()
 }
