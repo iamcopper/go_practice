@@ -1,6 +1,9 @@
 package main
 
-import "plugin"
+import (
+	"fmt"
+	"plugin"
+)
 
 func main() {
 	p, err := plugin.Open("testplugin.so")
@@ -20,4 +23,15 @@ func main() {
 	}
 
 	hello()
+
+	/* Using type switch to check the interface type */
+	switch t := f.(type) {
+	case func():
+		fmt.Printf("It's a func() type, type=%T value=%v\n", t, t)
+	case int:
+		fmt.Printf("It's a int type, type=%T value=%v\n", t, t)
+	default:
+		fmt.Printf("It's a unknown type, type=%T, value=%v\n", t, t)
+	}
+
 }
