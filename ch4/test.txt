@@ -1,5 +1,0 @@
-abc abc
-abc
-def
-feg
-abc
