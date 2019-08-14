@@ -6,7 +6,6 @@ import (
 	"net"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func main() {
@@ -27,23 +26,22 @@ func main() {
 	defer conn.Close()
 
 	for {
-		data := make([]byte, config.SERVER_RECV_LEN)
-		n, rAddr, err := conn.ReadFromUDP(data)
+		fmt.Println("--------------------------------")
+
+		recvData := make([]byte, config.RECV_LEN)
+		n, rAddr, err := conn.ReadFromUDP(recvData)
 		if err != nil {
 			fmt.Println(err)
 			continue
 		}
+		fmt.Println(">>> Server received [", n, "] bytes")
 
-		strData := string(data[:n])
-		fmt.Println("Server Recv: [", n, "]", strData)
-
-		upper := strings.ToUpper(strData)
-		n, err = conn.WriteToUDP([]byte(upper), rAddr)
+		sendData := recvData[:n]
+		n, err = conn.WriteToUDP(sendData, rAddr)
 		if err != nil {
 			fmt.Println(err)
 			continue
 		}
-
-		fmt.Println("Server Send: [", n, "]", upper)
+		fmt.Println("<<< Server send [", n, "] bytes")
 	}
 }
