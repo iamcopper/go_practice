@@ -25,8 +25,11 @@ func main() {
 
 	defer conn.Close()
 
+	var cycle uint32
+
 	for {
-		fmt.Println("--------------------------------")
+		fmt.Println("---------------- cycle:", cycle, " ------------------")
+		cycle++
 
 		recvData := make([]byte, config.RECV_LEN)
 		n, rAddr, err := conn.ReadFromUDP(recvData)
