@@ -1,21 +1,29 @@
+//传值&传引用
+//int为传值, slice为传引用
 package main
 
-import "fmt"
-
-type Caculate func(a, b int) int
-
-func add(a, b int) int {
-	return a + b
-}
+import (
+	"fmt"
+)
 
 func main() {
-	//caculate := add
-	var caculate Caculate
-	caculate = add
+	sl := []int{1, 2, 3}
+	index := 1
 
-	fmt.Printf("add(1, 2) = %d\n", add(1, 2))
-	fmt.Printf("caculate(1, 2) = %d\n", caculate(1, 2))
+	fmt.Printf("Original: slice=%v, index=%d\n", sl, index)
 
-	//fmt.Printf("\n\"add\" type: %T\n", add)
-	//fmt.Printf("\n\"caculate\" type: %T\n", caculate)
+	plus(sl, index)
+	fmt.Printf("After plus: slice=%v, index=%d\n", sl, index)
+}
+
+func plus(s []int, index int) {
+	if s == nil {
+		return
+	}
+
+	index += 1
+
+	for i := 0; i < len(s); i++ {
+		s[i] += index
+	}
 }
