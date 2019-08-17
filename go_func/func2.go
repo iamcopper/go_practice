@@ -1,4 +1,4 @@
-//可变参
+//可变参二次传递
 package main
 
 import (
@@ -7,20 +7,26 @@ import (
 )
 
 func main() {
-	m, _ := minimum(1, 3, 2, 0)
-	fmt.Printf("The minimum is: %d\n", m)
+	min, max, _ := minmax(7, 9, 3, 5, 1)
+	fmt.Printf("min:%d, max:%d\n", min, max)
 
 	arr := []int{7, 9, 3, 5, 1}
-	m, _ = minimum(arr...)
-	fmt.Printf("The minimum in the array is: %d\n", m)
+	min, max, _ = minmax(arr...)
+	fmt.Printf("In the slice, min:%d, max:%d\n", min, max)
 }
 
-func minimum(a ...int) (m int, err error) {
+func minmax(a ...int) (min, max int, err error) {
+	min, _ = minimum(a...)
+	max, _ = maximum(a)
+	return min, max, nil
+}
+
+func minimum(a ...int) (min int, err error) {
 	if len(a) == 0 {
 		return 0, errors.New("Parameter list is empty.")
 	}
 
-	min := a[0]
+	min = a[0]
 	for _, v := range a {
 		if v < min {
 			min = v
@@ -28,4 +34,19 @@ func minimum(a ...int) (m int, err error) {
 	}
 
 	return min, nil
+}
+
+func maximum(a []int) (max int, err error) {
+	if len(a) == 0 {
+		return 0, errors.New("Parameter list is empty.")
+	}
+
+	max = a[0]
+	for _, v := range a {
+		if v > max {
+			max = v
+		}
+	}
+
+	return max, nil
 }
