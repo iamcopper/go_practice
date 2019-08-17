@@ -9,6 +9,16 @@ func main() {
 	fmt.Printf("sum = %d\n", sum)
 }
 
-func add(a, b int) (sum int, err error) {
+//匿名返回值
+func add(a, b int) (int, error) {
 	return a + b, nil
 }
+
+/*
+//命名返回值
+func add(a, b int) (sum int, err error) {
+	sum = a + b
+	err = nil
+	return sum, err
+}
+*/
