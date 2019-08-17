@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-//定义一种类型-函数类型
+//定义一种函数类型
 type Caculate func(a, b int) int
 
 func add(a, b int) int {
