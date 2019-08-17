@@ -18,12 +18,12 @@ func minmax(a ...int) (min, max int, err error) {
 	return min, max, nil
 }
 
-func minimum(a []int) (m int, err error) {
+func minimum(a []int) (min int, err error) {
 	if len(a) == 0 {
 		return 0, errors.New("Parameter list is empty.")
 	}
 
-	min := a[0]
+	min = a[0]
 	for _, v := range a {
 		if v < min {
 			min = v
@@ -33,12 +33,12 @@ func minimum(a []int) (m int, err error) {
 	return min, nil
 }
 
-func maximum(a ...int) (m int, err error) {
+func maximum(a ...int) (max int, err error) {
 	if len(a) == 0 {
 		return 0, errors.New("Parameter list is empty.")
 	}
 
-	max := a[0]
+	max = a[0]
 	for _, v := range a {
 		if v > max {
 			max = v
