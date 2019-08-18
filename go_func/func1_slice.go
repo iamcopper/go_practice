@@ -8,13 +8,13 @@ import (
 func main() {
 	sl := []int{1, 2, 3}
 
-	fmt.Printf("Original: sl=%v\n", sl)
+	fmt.Printf("Original: sl=%v\n\n", sl)
 
 	appendSlice1(sl)
-	fmt.Printf("After appendSlice1: sl=%v\n", sl)
+	fmt.Printf("After appendSlice1: sl=%v\n\n", sl)
 
-	//appendSlice2(&sl)
-	//fmt.Printf("After appendSlice2: sl=%v\n", sl)
+	appendSlice2(&sl)
+	fmt.Printf("After appendSlice2: sl=%v\n", sl)
 }
 
 //传递sclie
@@ -36,5 +36,5 @@ func appendSlice2(s *([]int)) {
 	}
 
 	*s = append(*s, 12)
-	fmt.Printf("In appendSlice1: *s=%v\n", *s)
+	fmt.Printf("In appendSlice2: *s=%v\n", *s)
 }
