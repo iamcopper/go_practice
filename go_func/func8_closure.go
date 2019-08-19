@@ -1,4 +1,4 @@
-//闭包案例-函数计数器
+//闭包实例-函数计数器
 package main
 
 import "fmt"

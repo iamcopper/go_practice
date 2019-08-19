@@ -1,4 +1,4 @@
-//斐波那切数列
+//闭包实例：斐波那切数列
 package main
 
 import "fmt"
