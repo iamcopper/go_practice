@@ -24,4 +24,5 @@ func main() {
 	// areaIntf := Shaper(sq1)
 
 	areaIntf := sq1
+	fmt.Printf("The square has area: %f\n", areaIntf.Area())
 }
