@@ -1,5 +1,3 @@
-//传值&传引用
-//int为传值, slice为传引用
 package main
 
 import (
