@@ -1,4 +1,4 @@
-//传值&传引用: slice
+//slice
 package main
 
 import (
@@ -6,35 +6,55 @@ import (
 )
 
 func main() {
-	sl := []int{1, 2, 3}
+	s := [10]int{1, 2, 3}
+	s[0] = 1
+	s[1] = 2
+	s[2] = 3
 
-	fmt.Printf("Original: sl=%v\n\n", sl)
+	a := s[:3]
+	fmt.Printf("[main]\ns=%v len(s)=%d, cap(s)=%d\na=%v, len(a)=%d, cap(a)=%d\n\n", s, len(s), cap(s), a, len(a), cap(a))
 
-	appendSlice1(sl)
-	fmt.Printf("After appendSlice1: sl=%v\n\n", sl)
+	appendSlice1(a)
+	fmt.Printf("[main]after appendSlice1:\ns=%v, a=%v\n\n", s, a)
 
-	appendSlice2(&sl)
-	fmt.Printf("After appendSlice2: sl=%v\n", sl)
+	appendSlice2(&a)
+	fmt.Printf("[main]after appendSlice2:\ns=%v, a=%v\n\n", s, a)
+
+	/*
+		b := s[]int{1, 2, 3}
+		b = appendSlice3(b)
+		fmt.Printf("After appendSlice3: b=%v\n\n", b)
+	*/
 }
 
 //传递sclie
-//append后，生成新的slice，但原slice(sl)并未改变，函数中也无法改变
-func appendSlice1(s []int) {
-	if s == nil {
+//append后，生成新的slice，原slice(实参a)并未改变，函数中也无法改变实参a
+func appendSlice1(sl []int) {
+	if sl == nil {
 		return
 	}
 
-	s = append(s, 11)
-	fmt.Printf("In appendSlice1: s=%v\n", s)
+	sl = append(sl, 11)
+	fmt.Printf("[appendSlice1]\nsl=%v\n\n", sl)
 }
 
 //传递slice指针
-//append后，生成新的sclice，在通过slice指针修改原slice(sl)
-func appendSlice2(s *([]int)) {
-	if s == nil {
+//append后，生成新的sclice，在通过slice指针修改原slice(实参a)
+func appendSlice2(slptr *[]int) {
+	if slptr == nil {
 		return
 	}
 
-	*s = append(*s, 12)
-	fmt.Printf("In appendSlice2: *s=%v\n", *s)
+	*slptr = append(*slptr, 12)
+	fmt.Printf("[appendSlice2]\n*slptr=%v\n\n", *slptr)
+}
+
+func appendSlice3(sl []int) []int {
+	if sl == nil {
+		return sl
+	}
+
+	sl = append(sl, 13)
+	fmt.Printf("[appendSlice3]\nsl=%v\n\n", sl)
+	return sl
 }
