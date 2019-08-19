@@ -19,6 +19,6 @@ func add(a, b int) (int, error) {
 func add(a, b int) (sum int, err error) {
 	sum = a + b
 	err = nil
-	return sum, err
+	return
 }
 */
