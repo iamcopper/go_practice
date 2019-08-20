@@ -6,32 +6,32 @@ import (
 )
 
 func main() {
-	s := [10]int{1, 2, 3}
-	s[0] = 1
-	s[1] = 2
-	s[2] = 3
+	arr := [10]int{1, 2, 3}
+	arr[0] = 1
+	arr[1] = 2
+	arr[2] = 3
 
-	fmt.Printf("[out] s=%v\n", s)
+	fmt.Println("[out]", arr)
 
-	modifyArray1(s)
-	fmt.Printf("[out] s=%v\n", s)
+	modifyArray1(arr)
+	fmt.Println("[out]", arr)
 
-	modifyArray2(&s)
-	fmt.Printf("[out] s=%v\n", s)
+	modifyArray2(&arr)
+	fmt.Println("[out]", arr)
 }
 
-func modifyArray1(s [10]int) {
-	s[0] = 11
-	s[1] = 12
-	s[2] = 13
-	s[3] = 14
-	fmt.Printf("[in]  s=%v\n", s)
+func modifyArray1(a [10]int) {
+	a[0] = 11
+	a[1] = 12
+	a[2] = 13
+	a[3] = 14
+	fmt.Println("[in] ", a)
 }
 
-func modifyArray2(s *[10]int) {
-	(*s)[0] = 11
-	(*s)[1] = 12
-	(*s)[2] = 13
-	(*s)[3] = 14
-	fmt.Printf("[in]  *s=%v\n", *s)
+func modifyArray2(aptr *[10]int) {
+	(*aptr)[0] = 11
+	(*aptr)[1] = 12
+	(*aptr)[2] = 13
+	(*aptr)[3] = 14
+	fmt.Println("[in] ", *aptr)
 }
