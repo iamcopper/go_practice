@@ -1,4 +1,3 @@
-//slice
 package main
 
 import (
@@ -6,33 +5,23 @@ import (
 )
 
 func main() {
-	//s := [3]int{1, 2, 3}
-	s := [10]int{1, 2, 3}
-	s[0] = 1
-	s[1] = 2
-	s[2] = 3
+	sl := []int{1, 2, 3}
+	index := 1
 
-	a := s[:3]
+	fmt.Printf("sl=%v, index=%d\n", sl, index)
 
-	appendSlice1(a)
-	fmt.Printf("s=%v, a=%v\n", s, a)
-
-	appendSlice2(&a)
-	fmt.Printf("s=%v, a=%v\n", s, a)
+	plus(sl, index)
+	fmt.Printf("sl=%v, index=%d\n", sl, index)
 }
 
-func appendSlice1(sl []int) {
-	if sl == nil {
+func plus(s []int, index int) {
+	if s == nil {
 		return
 	}
 
-	sl = append(sl, 11)
-}
+	index += 1
 
-func appendSlice2(slptr *[]int) {
-	if slptr == nil {
-		return
+	for i := 0; i < len(s); i++ {
+		s[i] += index
 	}
-
-	*slptr = append(*slptr, 12)
 }
