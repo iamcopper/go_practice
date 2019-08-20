@@ -15,10 +15,10 @@ func main() {
 	a := s[:3]
 
 	appendSlice1(a)
-	fmt.Printf("s=%v, a=%v\n", s, a)
+	fmt.Printf("s=%v, a=%v, a=%p\n", s, a, a)
 
 	appendSlice2(&a)
-	fmt.Printf("s=%v, a=%v\n", s, a)
+	fmt.Printf("s=%v, a=%v, a=%p\n", s, a, a)
 }
 
 func appendSlice1(sl []int) {
