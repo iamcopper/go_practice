@@ -18,9 +18,11 @@ func main() {
 	sq1 := new(Square)
 	sq1.side = 5
 
-	// var areaIntf Shaper
-	// areaIntf = sq1
+	var areaIntf1 Shaper
+	areaIntf1 = sq1
+	fmt.Printf("The square has area: %f\n", areaIntf1.Area())
 
-	var areaIntf Shaper = sq1
-	fmt.Printf("The square has area: %f\n", areaIntf.Area())
+	areaIntf2 := new(Shaper)
+	*areaIntf2 = sq1
+	fmt.Printf("The square has area: %f\n", (*areaIntf2).Area())
 }
