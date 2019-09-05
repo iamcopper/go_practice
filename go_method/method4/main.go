@@ -7,6 +7,8 @@ import (
 func main() {
 	a := NewInteger()
 
+	// Define a method to get the interface instant.
+	// To get the interface instant, so that we can use this instant do more things.
 	b := a.getInstant()
 
 	a.Add(1)
