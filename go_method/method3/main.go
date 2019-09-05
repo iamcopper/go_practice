@@ -6,12 +6,12 @@ import (
 )
 
 func main() {
-	a := method1.NewInteger()
+	a := op.NewInteger()
 
 	a.Add(1)
-	fmt.Printf("a.Add(1), a = %v\n", a.Value())
+	fmt.Printf("a.Add(1), a.Value()=%v\n", a.Value())
 
 	// Build failed, can't refer to unexport field and method
 	// a.sub(1)
-	fmt.Printf("a.Add(1), a = %v\n", a.Value())
+	//fmt.Printf("a.Add(1), a = %v\n", a.Value())
 }
