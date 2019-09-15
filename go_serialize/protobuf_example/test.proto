@@ -1,0 +1,8 @@
+syntax = "proto2";
+package protobuf_example;
+
+message Message {
+	required uint64 tag = 1;
+	required uint64 length = 2;
+	required string value = 3;
+}

@@ -5,6 +5,8 @@ import (
 	"encoding/binary"
 	"encoding/gob"
 	"encoding/json"
+	"github.com/golang/protobuf/proto"
+	pb "github.com/iamcopper/gostudy/go_serialize/protobuf_example"
 	"log"
 )
 
@@ -63,5 +65,24 @@ func JsonEncodeDecode() {
 	var m2 Message2
 	if err = json.Unmarshal(buf, &m2); err != nil {
 		log.Fatal("json unmarahsl error:", err)
+	}
+}
+
+func ProtoEncodeDecode() {
+	m1 := &pb.Message{
+		Tag:    proto.Uint64(4),
+		Length: proto.Uint64(3),
+		Value:  proto.String("proto"),
+	}
+
+	buf, err := proto.Marshal(m1)
+	if err != nil {
+		log.Fatal("proto marshal error:", err)
+	}
+
+	var m2 pb.Message
+	err = proto.Unmarshal(buf, &m2)
+	if err != nil {
+		log.Fatal("proto unmarshal error:", err)
 	}
 }

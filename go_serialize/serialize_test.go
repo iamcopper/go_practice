@@ -21,3 +21,9 @@ func BenchmarkJsonEncodeDecode(b *testing.B) {
 		JsonEncodeDecode()
 	}
 }
+
+func BenchmarkProtoEncodeDecode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		ProtoEncodeDecode()
+	}
+}
