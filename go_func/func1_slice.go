@@ -5,23 +5,15 @@ import (
 )
 
 func main() {
-	sl := []int{1, 2, 3}
-	index := 1
+	sl := []int{0, 1, 2, 3, 4, 5, 0}
+	fmt.Printf("sl=%v, len(sl)=%d\n", sl, len(sl))
 
-	fmt.Printf("sl=%v, index=%d\n", sl, index)
-
-	plus(sl, index)
-	fmt.Printf("sl=%v, index=%d\n", sl, index)
+	plus(sl[3:6])
+	fmt.Printf("sl=%v, len(sl)=%d\n", sl, len(sl))
 }
 
-func plus(s []int, index int) {
-	if s == nil {
-		return
-	}
-
-	index += 1
-
+func plus(s []int) {
 	for i := 0; i < len(s); i++ {
-		s[i] += index
+		s[i] += 5
 	}
 }
